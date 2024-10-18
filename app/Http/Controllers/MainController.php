@@ -14,8 +14,7 @@ class MainController extends Controller
         $a = 1;
         $b = 2;
         $c = $a + $b;
-        $dev = $b - $a;
-    
-        return view('first', compact('c', 'dev'));
+        $dev = $b - $a;    
+        return view('first',compact('c','dev'));
     }
 }
