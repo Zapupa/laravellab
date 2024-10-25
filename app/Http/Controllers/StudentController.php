@@ -34,14 +34,17 @@ class StudentController extends Controller
     }
 
     public function show(Student $student){
-        return view('students.show',compact('student'));
+        $groups = Group::all();
+
+        return view('students.show',compact('student','groups'));
     }
 
     public function update(Request $request, Student $student){
         $data = $request -> validate([
             'fname'=>'string',
             'lname'=>'string',
-            'age'=>'integer'
+            'age'=>'integer',
+            'group_id' => ''
         ]);
         $student->update($data);
         return redirect()->back();
