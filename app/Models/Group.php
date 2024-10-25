@@ -14,4 +14,8 @@ class Group extends Model
     public function students():HasMany{
         return $this->hasMany(Student::class);
     }
+
+    public function adultStudents():HasMany{
+        return $this->hasMany(Student::class)->where("age", '>', 17);
+    }
 }

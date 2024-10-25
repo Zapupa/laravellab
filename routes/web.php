@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
     Route::put('/students/{student}',[StudentController::class,'update'])->name('students.update');
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
+    Route::get('/adults', [GroupController::class, 'adults'])->name('groups.adults');
     Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
 });
 
