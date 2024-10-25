@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\GroupController;
-
+use App\Http\Controllers\SubjectController;
+use App\Models\Subject;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,7 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/students',[StudentController::class,'store'])->name('students.store');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
     Route::put('/students/{student}',[StudentController::class,'update'])->name('students.update');
-    Route::get('/groups', [GroupController::class, 'index'])->name('group.index');
+    Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
+    Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
 });
 
 require __DIR__.'/auth.php';
